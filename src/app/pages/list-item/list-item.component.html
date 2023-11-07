@@ -1,0 +1,80 @@
+<div class="mb-6">
+  <h2 class='font-bold text-2xl primary_text dark:text-slate-200'>Post List</h2>
+  <p class='secondary_text dark:text-slate-400'>Post List: Simplifying your needs, one request at a time</p>
+</div>
+<div class="bg-white dark:bg-third-dark rounded-2xl overflow-hidden">
+  <div class="p-6 border-b dark:border-b-slate-600 border-b-slate-200">
+    <div class="flex gap-3 items-center">
+      <h1 class='font-bold text-2xl text-slate-900 capitalize dark:text-white'>{{titleCard || "Post List"}}</h1>
+      <div class='ms-auto'>
+        <button *ngIf="!isCreateOrEdit" (click)="handleClick('Create Post')" class='text-sm rounded-xl hover:opacity-90 border
+              border-blue-primary px-3 py-2 flex gap-2 items-center bg-blue-primary text-white shadow-xl
+              shadow-blue-primary/20'>
+          <span class='hidden md:inline-block'>Create new</span>
+        </button>
+        <button *ngIf="isCreateOrEdit" (click)="handleClick()" class='text-sm rounded-xl hover:opacity-90 border
+              border-blue-primary px-3 py-2 flex gap-2 items-center bg-blue-primary text-white shadow-xl
+              shadow-blue-primary/20'>
+          <span class='hidden md:inline-block'>Back</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!isCreateOrEdit" class="overflow-x-auto">
+    <table class='w-full table_custom table-auto'>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of posts; let i = index">
+          <td>{{1+i}}</td>
+          <td>{{post.title}}
+            <span *ngIf="post?.date" class="bg-blue-primary font-semibold text-xs px-1 rounded-md">new</span>
+          </td>
+          <td>
+            <p class="truncate w-96">{{post.body}}</p>
+          </td>
+          <td class='lg:space-x-2 flex flex-row flex-nowrap'>
+            <button class='btn_success flex' (click)="handleClick('Edit Post',post, i)">
+              <i-tabler name="pencil" class="!w-[16px] !h-[16px]"></i-tabler>
+            </button>
+            <button class='btn_danger flex' (click)="handleDelete(i)">
+              <i-tabler name="trash" class="!w-[16px] !h-[16px]"></i-tabler>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <form *ngIf="isCreateOrEdit" class="p-6" [formGroup]="formData" (ngSubmit)="onSubmit(formData)">
+    <div class="cols-2-input-group">
+      <label htmlFor="" class='block dark:text-white text-slate-800'>Title</label>
+      <div class="lg:w-3/4">
+        <input type="text" class='base_style_input_sm' formControlName="title" />
+        <span *ngIf="formData.controls['title'].errors?.['required']"
+          class="dark:text-rose-400 text-sm text-rose-700">Title is required</span>
+      </div>
+    </div>
+    <div class="cols-2-input-group">
+      <label htmlFor="" class='block dark:text-white text-slate-800'>Description</label>
+      <div class="lg:w-3/4">
+        <textarea class='base_style_input_sm' rows="3" formControlName="description"></textarea>
+        <span *ngIf="formData.controls['description'].errors?.['required']"
+          class="dark:text-rose-400 text-sm text-rose-700">Description is required</span>
+      </div>
+    </div>
+    <div class="text-end">
+      <button type='submit'
+        class='rounded-xl hover:opacity-90 border border-blue-primary px-4 py-2 ms-auto bg-blue-primary text-white shadow-xl shadow-blue-primary/20'>
+        Save
+      </button>
+    </div>
+  </form>
+</div>

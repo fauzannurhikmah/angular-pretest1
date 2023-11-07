@@ -1,1 +1,206 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.scrollbar-gutter {
+  scrollbar-gutter: stable both-edges;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  @apply w-[8px] h-[8px]
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-slate-300
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply rounded-md bg-slate-500 shadow-xl shadow-blue-400
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-500
+}
+
+.primary_text {
+  color: #2F2F2F;
+}
+
+.primary_blue {
+  background: #056FDF;
+}
+
+.primary_blue_text {
+  color: #056FDF;
+}
+
+.secondary_text {
+  color: #616161;
+}
+
+.placeholder_color {
+  color: #DFDFDF;
+}
+
+.css-13cymwt-control,
+.select__control--is-focused,
+.select__control--is-disabled {
+  border-radius: 15px !important;
+  padding: .25rem .25rem !important;
+  @apply dark:bg-[#29324c] dark:border-slate-600
+}
+
+.select__menu {
+  @apply dark:bg-[#29324c]
+}
+
+.css-1p3m7a8-multiValue {
+  border-radius: .5rem !important;
+  overflow: hidden !important;
+}
+
+.css-1p3m7a8-multiValue .css-12a83d4-MultiValueRemove {
+  @apply text-slate-600
+}
+
+.base_style_input {
+  @apply w-full rounded-[15px] focus:outline focus:outline-1 border border-slate-300 placeholder-slate-300 dark:placeholder-slate-400 px-4 py-3 dark:focus:outline-slate-200 dark:bg-slate-900/20 dark:border-slate-600 focus:outline-slate-300
+}
+
+.base_style_input_sm {
+  @apply w-full rounded-[15px] focus:outline focus:outline-1 focus:outline-slate-300 border border-slate-300 px-4 py-3 dark:bg-[#29324c] backdrop-filter backdrop-blur-xl dark:border-slate-600 dark:text-slate-400 text-sm
+}
+
+.base_style_select {
+  @apply w-full rounded-[15px] focus:outline focus:outline-1 focus:outline-slate-300 border border-slate-300 px-4 py-3 dark:bg-[#29324c] backdrop-filter backdrop-blur-xl dark:border-slate-600 dark:text-slate-400 text-sm
+}
+
+.thead_light {
+  @apply text-sm py-4 px-2 text-slate-700 dark:text-slate-200 bg-slate-200 dark:bg-slate-800/70;
+}
+
+.tbody_light {
+  @apply px-2 py-4 text-center border-b dark:border-b-slate-300/10 border-b-slate-600/10
+}
+
+.container_input_search {
+  @apply flex gap-2 dark:bg-slate-900/20 dark:border-slate-600 ps-3 px-2 rounded-xl bg-slate-200/80 items-center focus-within:outline focus-within:outline-1 focus-within:outline-slate-400
+}
+
+.container_input_password {
+  @apply border border-slate-300 rounded-[15px] overflow-hidden flex focus-within:outline focus-within:outline-1 focus-within:outline-slate-300 dark:border-slate-600 dark:focus:outline-slate-600
+}
+
+.style_input_password {
+  @apply w-full px-4 py-3 focus:outline-none placeholder-slate-300 dark:bg-slate-900/20 focus:border-slate-200 dark:placeholder-slate-400
+}
+
+.cols-2-input-group {
+  @apply lg:flex justify-between items-center mb-2 lg:mb-4
+}
+
+.btn_pagination {
+  @apply w-9 h-9 inline-flex justify-center items-center rounded-xl hover:opacity-90 shadow-md shadow-blue-primary/10 text-sm
+}
+
+.btn_pagination_default {
+  @apply bg-white text-blue-primary hover:bg-blue-primary hover:text-white border border-slate-200
+}
+
+.btn_pagination_active {
+  @apply bg-blue-primary text-white
+}
+
+.btn_password {
+  @apply px-3 py-2 dark:bg-slate-900/20 hover:bg-slate-100 outline-none dark:hover:bg-slate-800
+}
+
+.btn_filter {
+  @apply text-sm text-blue-primary hover:bg-blue-primary hover:text-white rounded-xl dark:hover:opacity-90 border border-blue-primary px-3 py-2 flex gap-2 items-center dark:bg-blue-primary dark:text-white dark:shadow-xl dark:shadow-blue-primary/20 dark:disabled:opacity-60
+}
+
+.btn_head_card {
+  @apply rounded-xl hover:opacity-90 border border-blue-primary px-3 py-2 flex gap-2 items-center bg-blue-primary text-white shadow-xl shadow-blue-primary/20
+}
+
+.btn_success {
+  @apply p-3 hover:opacity-90 bg-green-500 rounded-xl shadow-lg shadow-green-500/30 text-white
+}
+
+.btn_danger {
+  @apply p-3 hover:opacity-90 bg-rose-500 rounded-xl shadow-lg shadow-rose-500/30 text-white
+}
+
+.btn {
+  @apply w-full px-4 py-3 rounded-[15px] text-white uppercase font-semibold shadow-lg hover:shadow-none hover:opacity-95 transition;
+}
+
+.btn-border-blue-icon {
+  @apply border py-1 px-4 text-sm hover:bg-blue-primary hover:text-slate-100 rounded-xl border-blue-primary text-blue-primary transition flex items-center gap-2
+}
+
+.button_dropdown {
+  @apply w-full rounded-lg bg-[#ffffff10] px-3 py-[10px] text-sm text-white focus:outline-none backdrop-filter backdrop-blur-xl flex items-center
+}
+
+.dropdown_menu {
+  @apply bg-white/50 dark:bg-third-dark/80 absolute w-full backdrop-filter backdrop-blur-lg overflow-y-auto rounded-lg no-scrollbar scroll-me-2 mt-2 h-40 z-50
+}
+
+.sidebar_menu {
+  @apply transition ease-in text-sm text-white rounded-lg overflow-hidden z-10
+}
+
+.sidebar_menu_item {
+  @apply transition capitalize ease-in px-3 py-[10px] relative backdrop-filter backdrop-blur-md flex items-center gap-3
+}
+
+.light_effects {
+  @apply transition ease-in w-5 h-5 rounded-full absolute left-3 top-1/2 -translate-y-1/2 -z-10 blur-[8px]
+}
+
+.turn-down {
+  @apply translate-y-3 opacity-0
+}
+
+.turn-up {
+  @apply translate-y-0 opacity-100
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.user-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.head_content_title {
+  @apply font-bold text-lg lg:text-2xl primary_text dark:text-slate-200
+}
+
+.head_content_subtitle {
+  @apply text-slate-600 text-sm lg:text-base dark:text-slate-400
+}
+
+.table_custom thead th {
+  @apply lg:text-sm text-[12px] p-4 text-left text-slate-700 dark:text-slate-200 bg-slate-200 dark:bg-slate-800/70 break-words
+}
+
+.table_custom tbody td {
+  @apply lg:text-sm text-[12px] p-4 text-left border-b dark:border-b-slate-300/10 border-b-slate-600/10 break-words dark:text-white
+}

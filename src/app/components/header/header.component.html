@@ -1,0 +1,23 @@
+<nav class='w-full bg-white px-6 py-3 flex justify-end dark:bg-secondary-dark transition duration-200 ease-in'>
+  <div class="flex gap-4 items-center">
+    <span class="hidden md:block text-sm secondary_text dark:text-slate-300">{{currentDate}}</span>
+    <div class="lg:space-x-3 flex space-x-2">
+      <button class="p-[10px] flex bg-[#F0F0F0] group hover:bg-slate-200 rounded-lg dark:bg-third-dark">
+        <i-tabler name="bell-ringing"
+          class="secondary_text dark:text-slate-200 dark:group-hover:text-slate-800 !w-[18px] !h-[18px]"></i-tabler>
+      </button>
+      <div class="relative inline-block">
+        <button class="p-[10px] flex bg-[#F0F0F0] group hover:bg-slate-200 rounded-lg dark:bg-third-dark">
+          <i-tabler name="sun-filled"
+            class="secondary_text dark:text-slate-200 dark:group-hover:text-slate-800 !w-[18px] !h-[18px]"></i-tabler>
+        </button>
+      </div>
+    </div>
+    <div class="w-[2px] bg-slate-200 h-2/3 my-auto dark:bg-slate-200/10"></div>
+    <a href='/profile' class="flex gap-2 items-center hover:opacity-90">
+      <img src="https://ui-avatars.com/api/?name=admin" alt="profile" width="32" height="32"
+        class="rounded-full bg-slate-300" />
+      <span class="text-sm font-semibold secondary_text dark:text-slate-300 hidden lg:inline">admin</span>
+    </a>
+  </div>
+</nav>

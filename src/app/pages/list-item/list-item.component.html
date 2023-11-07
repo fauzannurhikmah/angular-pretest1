@@ -32,23 +32,33 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let post of posts; let i = index">
-          <td>{{1+i}}</td>
-          <td>{{post.title}}
-            <span *ngIf="post?.date" class="bg-blue-primary font-semibold text-xs px-1 rounded-md">new</span>
-          </td>
-          <td>
-            <p class="truncate w-96">{{post.body}}</p>
-          </td>
-          <td class='lg:space-x-2 flex flex-row flex-nowrap'>
-            <button class='btn_success flex' (click)="handleClick('Edit Post',post, i)">
-              <i-tabler name="pencil" class="!w-[16px] !h-[16px]"></i-tabler>
-            </button>
-            <button class='btn_danger flex' (click)="handleDelete(i)">
-              <i-tabler name="trash" class="!w-[16px] !h-[16px]"></i-tabler>
-            </button>
-          </td>
-        </tr>
+        <ng-container *ngIf="!isLoading">
+          <tr *ngFor="let post of posts; let i = index">
+            <td>{{1+i}}</td>
+            <td>{{post.title}}
+              <span *ngIf="post?.date" class="bg-blue-primary font-semibold text-xs px-1 rounded-md">new</span>
+            </td>
+            <td>
+              <p class="truncate w-96">{{post.body}}</p>
+            </td>
+            <td class='lg:space-x-2 flex flex-row flex-nowrap'>
+              <button class='btn_success flex' (click)="handleClick('Edit Post',post, i)">
+                <i-tabler name="pencil" class="!w-[16px] !h-[16px]"></i-tabler>
+              </button>
+              <button class='btn_danger flex' (click)="handleDelete(i)">
+                <i-tabler name="trash" class="!w-[16px] !h-[16px]"></i-tabler>
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+        <ng-container *ngIf="isLoading">
+          <tr *ngFor="let times of loadingTimes">
+            <td><ngx-skeleton-loader appearance="line"></ngx-skeleton-loader></td>
+            <td><ngx-skeleton-loader appearance="line"></ngx-skeleton-loader></td>
+            <td><ngx-skeleton-loader appearance="line"></ngx-skeleton-loader></td>
+            <td><ngx-skeleton-loader appearance="line"></ngx-skeleton-loader></td>
+          </tr>
+        </ng-container>
       </tbody>
     </table>
   </div>

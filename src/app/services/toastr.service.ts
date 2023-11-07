@@ -11,7 +11,7 @@ export interface toastPayload {
 @Injectable({
   providedIn: 'root',
 })
-export class ToastrService {
+export class ToastrServices {
   constructor(private toastr: ToastrService) {}
 
   showToast(toast: toastPayload) {
